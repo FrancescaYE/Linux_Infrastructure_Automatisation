@@ -1,19 +1,23 @@
 #!/bin/bash
-echo "=============================="
-echo "SERVER HEALTH CHECK"
-echo "=============================="
-echo "Date: $(date)"
+LOGFILE="/home/ahouefa/Linux_Infrastructure_Automatisation/health.log"
+echo "" | tee -a "$LOGFILE"
+
+echo "==============================" | tee -a "$LOGFILE"
+echo "SERVER HEALTH CHECK" | tee -a "$LOGFILE"
+echo "==============================" | tee -a "$LOGFILE"
+echo "Date: $(date)" | tee -a "$LOGFILE"
+
 # Partie CPU
-seuil=80
+cpu_threshold=80
 cpu_idle=$(top -bn1 | grep "Cpu(s)" | awk '{print $8}')
 cpu_use=$(echo "100 - $cpu_idle" | bc)
 cpu_use=${cpu_use%.*}
 
-if [ $cpu_use -lt $seuil ]
+if [ $cpu_use -lt $cpu_threshold ]
 then
-echo "CPU USAGE: $cpu_use% - OK"
+echo "CPU USAGE: $cpu_use% - OK" | tee -a "$LOGFILE"
 else
-echo "CPU USAGE: $cpu_use% - WARNING"
+echo "CPU USAGE: $cpu_use% - WARNING" | tee -a "$LOGFILE"
 fi
 
 
@@ -25,9 +29,9 @@ mem_used=$(free |grep "Mem:" | awk '{print $3}')
 mem_usage=$((mem_used*100 / mem_total))
 if [ $mem_usage -lt $mem_threshold ]
 then
-echo "Memory Usage: $mem_usage% - OK"
+echo "Memory Usage: $mem_usage% - OK" | tee -a "$LOGFILE"
 else
-echo "Memory Usage: $mem_usage% - WARNING"
+echo "Memory Usage: $mem_usage% - WARNING" | tee -a "$LOGFILE"
 fi
 
 #partie disk
@@ -38,13 +42,13 @@ disk_use=${disk_use%\%}
 
 if [ $disk_use -lt $disk_threshold ]
 then
-echo "Disk usage: $disk_use% - OK"
+echo "Disk usage: $disk_use% - OK" | tee -a "$LOGFILE"
 else
-echo "Disk usage: $disk_use% - WARNING"
+echo "Disk usage: $disk_use% - WARNING" | tee -a "$LOGFILE"
 fi 
 
 #partie health
-if [ $cpu_use -lt $seuil ]
+if [ $cpu_use -lt $cpu_threshold ]
 then
 cpu_health="OK"
 else
@@ -72,6 +76,8 @@ system_health="HEALTHY"
 else
 system_health="WARNING"
 fi
-echo "System status: $system_health"
-echo "Report saved at: $(date)" >> health.log
-echo "=============================="
+echo "System status: $system_health" | tee -a "$LOGFILE"
+
+echo "Report saved at: $(date)" | tee -a "$LOGFILE"
+echo "==============================" | tee -a "$LOGFILE"
+echo "" | tee -a "$LOGFILE"
