@@ -63,6 +63,8 @@ The script:
 * Requests project name
 * Requests department name
 * Validates user inputs
+* Checks if the project already exists
+* Stops execution when an error occurs
 * Creates project folders automatically
 
 Generated structure example:

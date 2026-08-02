@@ -20,6 +20,12 @@ then
   exit 1
 fi
 
+if [ -d "${companyName}/${projectName}" ]
+then
+  echo "Project ${companyName}/${projectName} already exists"
+  exit 1
+fi
+
 department=""
 echo "Enter department name"
 read department
