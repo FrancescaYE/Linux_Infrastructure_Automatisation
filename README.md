@@ -1,74 +1,59 @@
-#Linux Infrastructure Automatisation
+# Linux_Infrastructure_Automation
 
-## Server Health check
-A Bash sript that monitor Linux system health.
-
-##Features
--CPU Usage monitoring
--Memory usage monitoring
--Disk usage monitoring
--System status check
--Automated logging
--Cron scheduling
-
-## Technologies
--Linux Ubuntu
--Bash scripting
--Cron
-
-## Usage
-Run:
-'''bash
-./server_health_check.sh
-Linux Infrastructure Automation 🐧
-
-Description
+## Description
 
 Linux Infrastructure Automation is a Bash-based project designed to automate common Linux system administration tasks.
 
-The goal of this project is to build a collection of tools that help a Linux administrator monitor servers, automate project setup, and simplify repetitive infrastructure operations.
+The goal of this project is to create tools that help Linux administrators monitor servers, automate project setup, and reduce repetitive infrastructure operations.
 
 This project is part of my Cloud Computing learning journey, focusing on Linux administration, Bash scripting, and automation.
 
-⸻
+---
 
-Features
+## Features
 
-1. Server Health Check
+### 1. Server Health Check
 
-A Bash script that monitors the health of a Linux system.
+A Bash script that monitors the health status of a Linux server.
 
-Capabilities:
+#### Capabilities
 
 * CPU usage monitoring
 * Memory usage monitoring
 * Disk usage monitoring
-* System health status report
+* System health status evaluation
 * Automatic logging
-* Scheduled execution with Cron
+* Cron automation support
 
-Script:
+**Run the script:**
 
-./server_health_check.sh
+```bash
+./features/server_health_check.sh
+```
 
-⸻
+**Logs are stored in:**
 
-2. Project Setup Automation
+```text
+logs/health.log
+```
+
+---
+
+### 2. Project Setup Automation
 
 A Bash script that automatically creates a professional project directory structure.
 
-The script:
+#### The script
 
 * Requests company name
 * Requests project name
 * Requests department name
-* Validates user inputs
-* Checks if the project already exists
-* Stops execution when an error occurs
 * Creates project folders automatically
+* Organizes infrastructure files
 
-Generated structure example:
+**Generated structure example:**
 
+```text
 Company/
 └── Project/
     ├── docs/
@@ -76,89 +61,107 @@ Company/
     ├── scripts/
     ├── logs/
     └── backup/
+```
 
-Script:
+**Run the script:**
 
-./setup_project.sh
+```bash
+./features/setup_project.sh
+```
 
-⸻
+---
 
-Project Structure
+## Project Structure
 
+```text
 Linux_Infrastructure_Automatisation/
-│
-├── server_health_check.sh
-├── setup_project.sh
 ├── README.md
-├── health.log
-└── .gitignore
+├── features/
+│   ├── server_health_check.sh
+│   └── setup_project.sh
+└── logs/
+    └── health.log
+```
 
-⸻
+---
 
-Technologies Used
+## Technologies Used
 
 * Linux Ubuntu
-* Bash scripting
+* Bash
 * Cron
 * Git
 * GitHub
 
-⸻
 
-Installation
+---
+
+## Installation
 
 Clone the repository:
 
+```bash
 git clone <repository-url>
+```
 
 Navigate into the project:
 
+```bash
 cd Linux_Infrastructure_Automatisation
+```
 
-Give execution permission to scripts:
+Give execution permission to the scripts:
 
-chmod +x server_health_check.sh
-chmod +x setup_project.sh
+```bash
+chmod +x features/server_health_check.sh
+chmod +x features/setup_project.sh
+```
 
-⸻
+---
 
-Usage
+## Usage
 
-Run the server monitoring script:
+Run the server health monitoring script:
 
-./server_health_check.sh
+```bash
+./features/server_health_check.sh
+```
 
-Run the project creation automation script:
+Run the project setup automation script:
 
-./setup_project.sh
+```bash
+./features/setup_project.sh
+```
 
-⸻
+---
 
-Automation
+## Automation with Cron
 
-The server health check script can be automated using Cron.
+The server health check script can be scheduled using Cron to run automatically.
 
-Example:
+**Example (every 5 minutes):**
 
-*/5 * * * * /home/user/Linux_Infrastructure_Automatisation/server_health_check.sh
+```cron
+*/5 * * * * /path/to/Linux_Infrastructure_Automatisation/features/server_health_check.sh
+```
 
-This executes the monitoring script every 5 minutes and stores reports in the log file.
+This allows automatic server monitoring and log generation.
 
-⸻
+---
 
-Future Improvements
+## Future Improvements
 
-Planned features:
+Planned features include:
 
 * User management automation
-* Backup automation with tar archives
-* Server audit reporting
+* Backup automation using tar archives
+* Server audit reports
 * Network monitoring tools
-* More advanced Bash functions and error handling
+* Cloud integration
 
-⸻
+---
 
-Author
+## Author
 
-Francesca
+**Francesca**
 
